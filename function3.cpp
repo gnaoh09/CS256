@@ -18,7 +18,7 @@ struct GroupSubmission {
 // Create a vector to store group submissions
     vector<GroupSubmission> groupSubmissions;
 int main() {
-    using namespace std;
+
 
     // Create a vector of Project structures
     vector<Project> projects;
