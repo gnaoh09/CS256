@@ -22,7 +22,7 @@ int main() {
 
     // Create a vector of Project structures
     vector<Project> projects;
-    ifstream file("Prj.txt");
+    ifstream file("Prj.txt");        //Collect project data from Prj.txt
     if (file.is_open()) {
         while (!file.eof()) {
             Project project;
@@ -44,8 +44,7 @@ int main() {
         }
         file.close();
 
-    
-
+    //Input information  
     int groupNumber, projectNumber;
     string submissionDate;
 
@@ -58,6 +57,7 @@ int main() {
     cout << "Enter the submission date (dd-mm-yyyy): ";
     cin >> submissionDate;
 
+    //Put data into vector groupSubmissions
     bool found = false;
     for (const Project& project : projects) {
         if (project.number == projectNumber) {
@@ -76,8 +76,9 @@ int main() {
     } else {
         cout << "Submission recorded for Group " << groupNumber << " and Project " << projectNumber << ".\n";
     }
-}
-    ofstream infile("GroupSubmissions.txt");
+}   
+    //Save submission information into GroupSubmissions.txt
+    ofstream infile("GroupSubmissions.txt");                
 
     if (infile.is_open()) {
         for (const GroupSubmission& submission : groupSubmissions) {
