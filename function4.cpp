@@ -9,6 +9,53 @@
 #include "function3.h"
 using namespace std;
 
+void timeCmp(string a , string b){
+        // Define two date strings in dd/mm format
+    string completeDateStr1 = a;
+    string completeDateStr2 = b;
+
+    // Get the current year to create complete date strings
+    time_t now = time(0);
+    tm* ltm = localtime(&now);
+    int currentYear = 1900 + ltm->tm_year;
+
+    // Parse the complete date strings into tm structures
+    tm timeinfo1 = {};
+    tm timeinfo2 = {};
+
+    istringstream ss1(completeDateStr1);
+    istringstream ss2(completeDateStr2);
+
+    ss1 >> timeinfo1.tm_mday;
+    ss1.ignore(1); // Skip the '/'
+    ss1 >> timeinfo1.tm_mon;
+    timeinfo1.tm_mon--; // Months are 0-based in struct tm
+
+    ss2 >> timeinfo2.tm_mday;
+    ss2.ignore(1); // Skip the '/'
+    ss2 >> timeinfo2.tm_mon;
+    timeinfo2.tm_mon--; // Months are 0-based in struct tm
+
+    if (ss1.fail() || ss2.fail()) {
+        cerr << "Date parsing failed." << endl;
+    }
+
+    // Set the year to the current year
+    timeinfo1.tm_year = ltm->tm_year;
+    timeinfo2.tm_year = ltm->tm_year;
+
+    // Convert tm structures to time since epoch
+    time_t time1 = mktime(&timeinfo1);
+    time_t time2 = mktime(&timeinfo2);
+    if (time1 <= time2) {
+            cout << "=> This project has been submitted on time"<< endl;
+    } 
+    else if (time1 > time2) {
+            cout << "=> This group has been submitted late" << endl;
+        } 
+}
+
+
 void functoin4_1(){
     int a;
     cout << "Enter the Project Number to search: ";
@@ -89,51 +136,8 @@ void functoin4_1(){
                 cout << "Group: " << GS.groupNumber << " - Project " << project.number << ": "<<endl;
                 cout <<"Submission Date: "<< GS.submissionDate<<endl;
                 cout << "Project Deadline: " << project.deadline<<endl;
+                timeCmp(GS.submissionDate,project.deadline);
 
-    // Define two date strings in dd/mm format
-    string completeDateStr1 = GS.submissionDate;
-    string completeDateStr2 = project.deadline;
-
-    // Get the current year to create complete date strings
-    time_t now = time(0);
-    tm* ltm = localtime(&now);
-    int currentYear = 1900 + ltm->tm_year;
-
-    // Parse the complete date strings into tm structures
-    tm timeinfo1 = {};
-    tm timeinfo2 = {};
-
-    istringstream ss1(completeDateStr1);
-    istringstream ss2(completeDateStr2);
-
-    ss1 >> timeinfo1.tm_mday;
-    ss1.ignore(1); // Skip the '/'
-    ss1 >> timeinfo1.tm_mon;
-    timeinfo1.tm_mon--; // Months are 0-based in struct tm
-
-    ss2 >> timeinfo2.tm_mday;
-    ss2.ignore(1); // Skip the '/'
-    ss2 >> timeinfo2.tm_mon;
-    timeinfo2.tm_mon--; // Months are 0-based in struct tm
-
-    if (ss1.fail() || ss2.fail()) {
-        cerr << "Date parsing failed." << endl;
-    }
-
-    // Set the year to the current year
-    timeinfo1.tm_year = ltm->tm_year;
-    timeinfo2.tm_year = ltm->tm_year;
-
-    // Convert tm structures to time since epoch
-    time_t time1 = mktime(&timeinfo1);
-    time_t time2 = mktime(&timeinfo2);
-
-
-        if (time1 <= time2) {
-            cout << "=> This group is on time"<< endl;
-        } else if (time1 > time2) {
-            cout << "=> This group is late" << endl;
-        }
         cout << "--------------------------------------" <<endl;
             }
         }
@@ -204,50 +208,7 @@ void function4_2(){
             cout << project.description<< endl;
             cout << "Submission Date: " << submission.submissionDate << endl;
             cout << "Deadline: " << project.deadline << endl;
-    
-    // Define two date strings in dd/mm format
-    string completeDateStr1 = submission.submissionDate;
-    string completeDateStr2 = project.deadline;
-
-    // Get the current year to create complete date strings
-    time_t now = time(0);
-    tm* ltm = localtime(&now);
-    int currentYear = 1900 + ltm->tm_year;
-
-    // Parse the complete date strings into tm structures
-    tm timeinfo1 = {};
-    tm timeinfo2 = {};
-
-    istringstream ss1(completeDateStr1);
-    istringstream ss2(completeDateStr2);
-
-    ss1 >> timeinfo1.tm_mday;
-    ss1.ignore(1); // Skip the '/'
-    ss1 >> timeinfo1.tm_mon;
-    timeinfo1.tm_mon--; // Months are 0-based in struct tm
-
-    ss2 >> timeinfo2.tm_mday;
-    ss2.ignore(1); // Skip the '/'
-    ss2 >> timeinfo2.tm_mon;
-    timeinfo2.tm_mon--; // Months are 0-based in struct tm
-
-    if (ss1.fail() || ss2.fail()) {
-        cerr << "Date parsing failed." << endl;
-    }
-
-    // Set the year to the current year
-    timeinfo1.tm_year = ltm->tm_year;
-    timeinfo2.tm_year = ltm->tm_year;
-
-    // Convert tm structures to time since epoch
-    time_t time1 = mktime(&timeinfo1);
-    time_t time2 = mktime(&timeinfo2);
-    if (time1 <= time2) {
-            cout << "=> This project has been submitted on time"<< endl;
-    } 
-    else if (time1 > time2) {
-            cout << "=> This group has been submitted late" << endl;
-        } 
+            timeCmp(submission.submissionDate,project.deadline);
     cout <<"-------------------------------------" << endl;
     found = true;
             }
@@ -265,7 +226,6 @@ void function4_2(){
 
 int main(){
     int a;
-    cout << " Nhap lua chon: " << endl << "1: hien thi theo nhom" << endl << "2: hien thi theo group" << endl;
     cin >> a;
     switch (a)
     {
