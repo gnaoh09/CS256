@@ -265,6 +265,7 @@ void function4_2(){
 
 int main(){
     int a;
+    cout << " Nhap lua chon: " << endl << "1: hien thi theo nhom" << endl << "2: hien thi theo group" << endl;
     cin >> a;
     switch (a)
     {
