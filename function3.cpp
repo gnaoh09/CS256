@@ -54,7 +54,7 @@ int main() {
     cout << "Enter the project number: ";
     cin >> projectNumber;
 
-    cout << "Enter the submission date (dd-mm-yyyy): ";
+    cout << "Enter the submission date (DD/MM/YYYY): ";
     cin >> submissionDate;
 
     //Put data into vector groupSubmissions
