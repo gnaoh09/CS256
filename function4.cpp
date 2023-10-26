@@ -234,6 +234,7 @@ void function4_2(){
 
 int main(){
     int a;
+    cout << "nhap lua chon: " << endl << "1: hien thi theo group" << endl << "2: hien thi theo nhom" <<endl;
     cin >> a;
     switch (a)
     {
