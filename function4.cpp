@@ -200,34 +200,54 @@ void function4_2(){
     
     //Display function 
     bool found = false;
-    for (const GroupSubmission& submission : submissions) {
-    for (const Project& project : projects){
-        if (submission.groupNumber == search_term) {
-            if(project.number == submission.projectnumber){
-            cout << "Project Number: " << submission.projectnumber << endl;
-            cout << project.description<< endl;
-            cout << "Submission Date: " << submission.submissionDate << endl;
-            cout << "Deadline: " << project.deadline << endl;
-            timeCmp(submission.submissionDate,project.deadline);
-    cout <<"-------------------------------------" << endl;
-    found = true;
+for (const GroupSubmission& submission : submissions) {
+    if (submission.groupNumber == search_term) {
+        bool projectFound = false;
+        for (const Project& project : projects) {
+            if (submission.projectnumber == project.number) {
+                cout << "Project Number: " << submission.projectnumber << endl;
+                cout << project.description << endl;
+                cout << "Submission Date: " << submission.submissionDate << endl;
+                cout << "Deadline: " << project.deadline << endl;
+                timeCmp(submission.submissionDate, project.deadline);
+                cout << "-------------------------------------" << endl;
+                found = true;
+                projectFound = true;
             }
-        else{
-            cout << "Project Number: " << project.number << endl;
-            cout << project.description<< endl;
-            cout << "Deadline: " << project.deadline << endl;
-            cout << "Not submitted yet!" <<  endl;
-            cout << "-------------------------------------" <<endl;
         }
+        if (!projectFound) {
+            cout << "Project Number: " << submission.projectnumber << endl;
+            cout << "Not submitted yet!" << endl;
+            cout << "-------------------------------------" << endl;
         }
-        
     }
-    }
+}
 
-    //Not found
-    if (!found) {
-        cout << "This group has not submitted any project!" << endl;
+// Display other projects that the group has not submitted yet
+if (found) {
+    for (const Project& project : projects) {
+        bool projectSubmitted = false;
+        for (const GroupSubmission& submission : submissions) {
+            if (submission.groupNumber == search_term && submission.projectnumber == project.number) {
+                projectSubmitted = true;
+                break;
+            }
+        }
+        if (!projectSubmitted) {
+            cout << "Project Number: " << project.number << endl;
+            cout << project.description << endl;
+            cout << "Deadline: " << project.deadline << endl;
+            cout << "Not submitted yet!" << endl;
+            cout << "-------------------------------------" << endl;
+        }
     }
+}
+
+// Not found
+if (!found) {
+    cout << "This group has not submitted any project!" << endl;
+}
+
 }
 
 
