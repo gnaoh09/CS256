@@ -40,7 +40,7 @@ void CreateNew(){
         cout << "Project " << i + 1 << " - Enter project description: ";
         getline(cin, project.description);
 
-        cout << "Project " << i + 1 << " - Enter project deadline: ";
+        cout << "Project " << i + 1 << " - Enter project deadline(DD/MM/YYYY): ";
         getline(cin, project.deadline);
 
         projectVector.push_back(project);
