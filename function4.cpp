@@ -10,7 +10,7 @@
 using namespace std;
 
 void timeCmp(string a , string b){
-        // Define two date strings in dd/mm format
+    // Define two date strings in dd/mm format
     string completeDateStr1 = a;
     string completeDateStr2 = b;
 
@@ -212,7 +212,15 @@ void function4_2(){
     cout <<"-------------------------------------" << endl;
     found = true;
             }
+        else{
+            cout << "Project Number: " << project.number << endl;
+            cout << project.description<< endl;
+            cout << "Deadline: " << project.deadline << endl;
+            cout << "Not submitted yet!" <<  endl;
+            cout << "-------------------------------------" <<endl;
         }
+        }
+        
     }
     }
 
