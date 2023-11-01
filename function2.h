@@ -1,9 +1,21 @@
 #include <iostream>
-#include <fstream>
+#include <stdlib.h>
 #include <vector>
 #include <string>
-#include <limits>
+#include <chrono>
+#include <iomanip>
+#include <ctime>
+#include <regex> 
+#include <sstream>
 using namespace std;
+
+bool isValidDateFormat(const string& input) {
+    // Regular expression pattern for DD/MM/YYYY format
+    regex pattern(R"(^(0[1-9]|1\d|2\d|3[01])/(0[1-9]|1[0-2])/(\d{4})$)");
+
+    // Check if the input matches the pattern
+    return regex_match(input, pattern);
+}
 
 struct Project {
     int number;
@@ -48,9 +60,17 @@ void CreateNew(){
         cout << "Project " << i + 1 << " - Enter project description: ";
         getline(cin, project.description);
 
+        bool validFormat = false;
+    while (!validFormat) {
         cout << "Project " << i + 1 << " - Enter project deadline (DD/MM/YYYY): ";
         getline(cin, project.deadline);
+        validFormat = isValidDateFormat(project.deadline);
+        if (!validFormat) {
+            cout << "Invalid input format. Please use DD/MM/YYYY format." << endl;
+        }
+    }
 
+        
         projectVector.push_back(project);
     }
 

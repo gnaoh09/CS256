@@ -2,6 +2,7 @@
 #include <vector>
 #include <string>
 #include <fstream>
+#include <function2.h>
 using namespace std;
 
 
@@ -48,8 +49,21 @@ void function3() {
     cout << "Enter the project number: ";
     cin >> projectNumber;
 
-    cout << "Enter the submission date (DD/MM/YYYY): ";
-    cin >> submissionDate;
+    string submissionDate;
+    bool validFormat = false;
+
+    while (!validFormat) {
+        cout << "Enter a date (DD/MM/YYYY): ";
+        cin >> submissionDate;
+
+        validFormat = isValidDateFormat(submissionDate);
+
+        if (!validFormat) {
+            cout << "Invalid input format. Please use DD/MM/YYYY format." << endl;
+        }
+    }
+
+
 
     bool found = false;
     for (const Project& project : projects) {
