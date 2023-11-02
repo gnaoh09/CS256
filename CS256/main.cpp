@@ -9,6 +9,7 @@
 #include <regex> 
 #include <sstream>
 #include "./base/base.h"
+#include "./function/function1.h" 
 #include "./function/function2.h" 
 #include "./function/function3.h" 
 #include "./function/function4.h" 
@@ -27,7 +28,7 @@ int main(){
        
         switch(choose) {
             case 1:
-                cout <<"1";
+                function1();
                 break;
             case 2:
                 function2();

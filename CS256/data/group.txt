@@ -1,6 +1,2 @@
 Group,Full name,Student Id
-1,kim jong un,20218188
-1,Le Minh Duc,2043423
-2,park se ri do,2022434
-2,Nguyen Huy Hoang,20432345
-3,lee min jae,204343
+1,hoang,1
