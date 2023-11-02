@@ -1,0 +1,6 @@
+Group/Project              Project 1              Project 2              Project 3              Project 4              Project 5
+    Group 1                 on time                 on time                 on time       not submitted yet       not submitted yet
+    Group 2                 on time       not submitted yet       not submitted yet       not submitted yet       not submitted yet
+    Group 4                    late       not submitted yet       not submitted yet       not submitted yet       not submitted yet
+    Group 5       not submitted yet                 on time       not submitted yet       not submitted yet       not submitted yet
+    Group 6                 on time       not submitted yet                 on time       not submitted yet       not submitted yet
