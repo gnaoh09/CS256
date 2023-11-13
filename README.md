@@ -32,5 +32,10 @@
 ######6.	Find groups do not complete or submit on time.
 
 #######7.	Quit.
+**(All database using txt files)**
+"Prj.txt" : include data of project declaration. (for funcion 2)
+"GroupSubmissions" : include submission data of all Group. (for funcion 3)
+"OverallStatistic" : include all submission status of all group. (for funcion 5)
+"group.txt" : information of student in class (for funcion 1)
 
 
