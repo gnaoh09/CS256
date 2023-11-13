@@ -1,2 +1,37 @@
 Group,Full name,Student Id
-1,hoang,1
+1,Nguyen Anh Nguyen,1624733
+1,Tran Hai Minh,1624853
+1,Vu Duy Hao,1624802
+1,Nguyen Gia Huy,1624705
+1,Nguyen Tuan Anh,1624834
+1,Le Duc Tuyen,1624790
+2,Man Duc Chuc,1624835
+2,Truong Khanh An,1624815
+2,Pham Xuan Hung,1624702
+2,Do Nhat Hoang,1624678
+2,Phung Minh Quang,1624752
+2,Nguyen Duy Duc,1624838
+3,Nguyen Tuan Minh,1624715
+3,Nguyen Ngoc Linh,1624852
+3,Nguyen Xuan Bach,1624858
+3,Pham Thi Minh Trang,1624780
+3,Ngo Quynh Anh,1624831
+3,Bui Tran Hoang,1624816
+4,Do Quang Minh,1624712
+4,Vo Duc Thang,1624759
+4,Trinh Duc An,1625147
+4,Le Trung Kien,1624719
+4,Nguyen Truong Son,1624766
+4,Trinh Hai Dang,1624836
+5,Dao Nguyen Khoi,1624717
+5,Ta Duc Duy,1624634
+5,Truong Thanh Hung,1624817
+5,Nguyen Quang Trung,1624786
+5,Nguyen Le Hoang,1624813
+5,Pham Vu Thai,1624778
+6,Tran Khanh Duy,1624639
+6,Nguyen Hoang Tuan Anh,1624640
+6,Ngo Ha Anh Thu,1624777
+6,Nguyen Van Tri,1624782
+6,Phung Nguyen Huy Toan,1624779
+6,Nguyen Trung Son,1624758
